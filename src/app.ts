@@ -1,11 +1,15 @@
-import express, { Application, NextFunction, Request, Response } from 'express'
 import path from 'path'
-import router from './router/apiRouter'
-import globalErrorHandler from './middleware/globalErrorHandler'
-import responseMessage from './constant/responseMessage'
-import httpError from './util/httpError'
-import helmet from 'helmet'
+
 import cors from 'cors'
+import express from 'express'
+import helmet from 'helmet'
+
+import responseMessage from './constant/responseMessage'
+import globalErrorHandler from './middleware/globalErrorHandler'
+import router from './router/apiRouter'
+import httpError from './util/httpError'
+
+import type { Application, NextFunction, Request, Response } from 'express'
 
 const app: Application = express()
 

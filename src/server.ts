@@ -14,7 +14,7 @@ const server = app.listen(config.PORT)
 
         console.log(`Server is running on port ${config.PORT}`)
     } catch (err) {
-        server.close((error) => {
+        server.close(() => {
             // if (error) {
             //     logger.error(`APPLICATION_ERROR`, { meta: error })
             // }

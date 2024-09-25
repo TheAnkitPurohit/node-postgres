@@ -1,4 +1,4 @@
-export type THttpResponse = {
+export interface THttpResponse {
     success: boolean
     statusCode: number
     request: {
@@ -10,7 +10,7 @@ export type THttpResponse = {
     data: unknown
 }
 
-export type THttpError = {
+export interface THttpError {
     success: boolean
     statusCode: number
     request: {

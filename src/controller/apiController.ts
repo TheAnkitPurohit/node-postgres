@@ -1,8 +1,10 @@
-import { NextFunction, Request, Response } from 'express'
-import httpResponse from '../util/httpResponse'
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import responseMessage from '../constant/responseMessage'
 import httpError from '../util/httpError'
+import httpResponse from '../util/httpResponse'
 import quicker from '../util/quicker'
+
+import type { NextFunction, Request, Response } from 'express'
 
 export default {
     self: (req: Request, res: Response, next: NextFunction) => {
