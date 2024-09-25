@@ -11,7 +11,7 @@
         "start": "cross-env NODE_ENV=production node dist/server.js",
         "lint": "eslint",
         "lint:fix": "eslint --fix",
-        "prettier:fix": "yarn prettier --write",
+        "prettier:fix": "yarn prettier --write .",
         "prepare": "husky",
         "script:lint": "bash -e ./scripts/lint.sh",
         "seed": "tsx prisma/seed.ts",
