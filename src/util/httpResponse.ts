@@ -25,4 +25,3 @@ export default (req: Request, res: Response, responseStatusCode: number, respons
 
     res.status(responseStatusCode).json(response)
 }
-

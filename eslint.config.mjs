@@ -1,29 +1,23 @@
-module.exports = {
-    parser: '@typescript-eslint/parser',
-    root: true,
-    env: {
-        es6: true,
-        node: true
-    },
-    parserOptions: {
-        project: './tsconfig.json'
-    },
-    ignorePatterns: ['tsconfig.json', 'eslint.config.mjs'],
-    extends: [
-        'eslint:recommended',
-        'airbnb-base',
-        'airbnb-typescript/base',
-        'plugin:import/recommended',
-        'plugin:@typescript-eslint/recommended',
-        'plugin:@typescript-eslint/stylistic',
-        'prettier'
-    ],
-    plugins: ['@typescript-eslint', 'prettier', 'import'],
-    settings: {
-        'import/resolver': {
-            typescript: {}
+// @ts-check
+
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import * as importPlugin from 'eslint-plugin-import'
+
+export default tseslint.config({
+    languageOptions: {
+        parserOptions: {
+            project: true,
+            tsconfigRootDir: import.meta.dirname
         }
     },
+    files: ['**/*.ts'],
+    extends: [eslint.configs.recommended, ...tseslint.configs.recommendedTypeChecked, eslintConfigPrettier],
+    plugins: {
+        import: importPlugin
+    },
+
     rules: {
         'no-console': 'off',
         'no-underscore-dangle': 'off',
@@ -67,7 +61,7 @@ module.exports = {
                 message: 'Please use Model.findOne* instead.'
             }
         ],
-        'prettier/prettier': 'error',
+        // 'prettier/prettier': 'error',
         'import/prefer-default-export': 'off',
         'import/order': [
             'error',
@@ -141,5 +135,4 @@ module.exports = {
             }
         ]
     }
-}
-
+})

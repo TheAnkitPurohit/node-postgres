@@ -23,4 +23,3 @@ const server = app.listen(config.PORT)
         })
     }
 })()
-
