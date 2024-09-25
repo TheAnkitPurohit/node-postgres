@@ -2,7 +2,6 @@ import { Request, Response } from 'express'
 import { THttpResponse } from '../types/types'
 import config from '../config/config'
 import { EApplicationEnvironment } from '../constant/application'
-import logger from './logger'
 
 export default (req: Request, res: Response, responseStatusCode: number, responseMessage: string, data: unknown = null): void => {
     const response: THttpResponse = {
@@ -18,9 +17,6 @@ export default (req: Request, res: Response, responseStatusCode: number, respons
     }
 
     // Log
-    logger.info(`CONTROLLER_RESPONSE`, {
-        meta: response
-    })
 
     // Production Env check
     if (config.ENV === EApplicationEnvironment.PRODUCTION) {
@@ -29,3 +25,4 @@ export default (req: Request, res: Response, responseStatusCode: number, respons
 
     res.status(responseStatusCode).json(response)
 }
+
